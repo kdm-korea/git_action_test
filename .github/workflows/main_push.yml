@@ -1,37 +1,17 @@
-name: Test Code
+name: Test Code workflow
 
 on: [push]
 
 jobs:
-  test:
-    name: Test on node ${{ marix.node_version}}
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        node_version: ['8', '10', '12']
-        os: [ubuntu-latest, windows-latest]
-        
+  build:
+
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: action/checkout@v1
-        name: Use Node.js ${{matrix.node_version}}
-#         uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.node_version}}
-        
-      - name: npm install, build and test
-        run:
-          npm install
-          npm run build --if-present
-          npm test
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: Run a one-line script
-#       run: npm install
-#     - name: Run a multi-line script
-#       run: |
-#         echo Add other actions to build,
-#         echo test, and deploy your project.
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: npm install
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
