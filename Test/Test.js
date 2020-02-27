@@ -4,4 +4,4 @@ function add(x, y){
 
 let value = add(1, 2);
 
-console.log(valusse);
+console.log(value);
